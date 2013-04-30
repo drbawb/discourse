@@ -728,6 +728,10 @@ en:
           one: "Are you sure you want to delete that post?"
           other: "Are you sure you want to delete all those posts?"
 
+
+    arena:
+      list: "List Arenas"
+
     category:
       none: '(no category)'
       edit: 'edit'
@@ -797,6 +801,7 @@ en:
     changed_by: "by {{author}}"
 
     categories_list: "Categories List"
+    arenas_list: "Arenas List"
 
     filters:
       latest:
