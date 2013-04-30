@@ -1,4 +1,5 @@
 class Category < ActiveRecord::Base
+  belongs_to :arena
   belongs_to :topic, dependent: :destroy
   belongs_to :topic_only_relative_url,
     select: "id, title, slug",
@@ -9,6 +10,7 @@ class Category < ActiveRecord::Base
   has_many :topics
   has_many :category_featured_topics
   has_many :featured_topics, through: :category_featured_topics, source: :topic
+
 
   has_many :category_featured_users
   has_many :featured_users, through: :category_featured_users, source: :user
