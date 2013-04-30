@@ -85,6 +85,11 @@
             {{/linkTo}}
           </li>
         {{/if}}
+      	
+        <li class='heading' title="{{i18n filters.arenas.help}}">
+      		{{#linkTo "list.categories"}}{{i18n filters.arenas.title}}{{/linkTo}}
+      	</li>
+
         {{#if view.categories}}
           <li class='heading' title="{{i18n filters.categories.help}}">
             {{#linkTo "list.categories"}}{{i18n filters.categories.title}}{{/linkTo}}
