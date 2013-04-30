@@ -58,7 +58,6 @@ class Topic < ActiveRecord::Base
   attr_accessor :posters  # TODO: can replace with posters_summary once we remove old list code
   attr_accessor :topic_list
 
-
   # The regular order
   scope :topic_list_order, lambda { order('topics.bumped_at desc') }
 
@@ -69,7 +68,7 @@ class Topic < ActiveRecord::Base
 
   scope :listable_topics, lambda { where('topics.archetype <> ?', [Archetype.private_message]) }
 
-  scope :by_newest, order('created_at desc, id desc')
+  scope :by_newest, order('topics.created_at desc, topics.id desc')
 
   # Helps us limit how many favorites can be made in a day
   class FavoriteLimiter < RateLimiter
@@ -570,7 +569,7 @@ class Topic < ActiveRecord::Base
   # Enable/disable the star on the topic
   def toggle_star(user, starred)
     Topic.transaction do
-      TopicUser.change(user, id, starred: starred, starred_at: starred ? DateTime.now : nil)
+      TopicUser.change(user, id, {starred: starred}.merge( starred ? {starred_at: DateTime.now, unstarred_at: nil} : {unstarred_at: DateTime.now}))
 
       # Update the star count
       exec_sql "UPDATE topics
@@ -598,7 +597,24 @@ class Topic < ActiveRecord::Base
   end
 
   def slug
-    Slug.for(title).presence || "topic"
+    unless slug = read_attribute(:slug)
+      return '' unless title.present?
+      slug = Slug.for(title).presence || "topic"
+      if new_record?
+        write_attribute(:slug, slug)
+      else
+        update_column(:slug, slug)
+      end
+    end
+
+    slug
+  end
+
+  def title=(t)
+    slug = ""
+    slug = (Slug.for(t).presence || "topic") if t.present?
+    write_attribute(:slug, slug)
+    write_attribute(:title,t)
   end
 
   def last_post_url

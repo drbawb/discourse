@@ -12,12 +12,15 @@ class SiteSetting < ActiveRecord::Base
   client_setting(:title, "Discourse")
   client_setting(:logo_url, '/assets/d-logo-sketch.png')
   client_setting(:logo_small_url, '/assets/d-logo-sketch-small.png')
+  setting(:contact_email, '')
   setting(:company_full_name, 'My Unconfigured Forum Ltd.')
   setting(:company_short_name, 'Unconfigured Forum')
   setting(:company_domain, 'www.example.com')
+  setting(:tos_url, '')
+  setting(:privacy_policy_url, '')
   setting(:api_key, '')
   client_setting(:traditional_markdown_linebreaks, false)
-  client_setting(:top_menu, 'latest|hot|new|unread|favorited|categories')
+  client_setting(:top_menu, 'latest|new|unread|favorited|categories')
   client_setting(:post_menu, 'like|edit|flag|delete|share|bookmark|reply')
   client_setting(:share_links, 'twitter|facebook|google+|email')
   client_setting(:track_external_right_clicks, false)
@@ -179,6 +182,11 @@ class SiteSetting < ActiveRecord::Base
   client_setting(:educate_until_posts, 2)
 
   setting(:max_similar_results, 7)
+
+  # Settings for topic heat
+  client_setting(:topic_views_heat_low,    1000)
+  client_setting(:topic_views_heat_medium, 2000)
+  client_setting(:topic_views_heat_high,   5000)
 
   def self.generate_api_key!
     self.api_key = SecureRandom.hex(32)
