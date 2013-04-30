@@ -36,6 +36,8 @@ Discourse.Route.buildRoutes(function() {
     this.route('categories', { path: '/categories' });
     this.route('category', { path: '/category/:slug/more' });
     this.route('category', { path: '/category/:slug' });
+
+    this.route('arenas', { path: '/arenas' });
   });
 
   // User routes

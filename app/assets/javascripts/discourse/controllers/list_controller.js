@@ -66,6 +66,8 @@ Discourse.ListController = Discourse.Controller.extend({
   updateTitle: function() {
     if (this.get('filterMode') === 'categories') {
       return Discourse.set('title', Em.String.i18n('categories_list'));
+    } else if (this.get('filterMode') === 'arenas') {
+      return Discourse.set('title', Em.String.i18n('arenas_list'));
     } else {
       if (this.present('category')) {
         return Discourse.set('title', this.get('category.name').capitalize() + " " + Em.String.i18n('topic.list'));
@@ -73,7 +75,7 @@ Discourse.ListController = Discourse.Controller.extend({
         return Discourse.set('title', Em.String.i18n('topic.list'));
       }
     }
-  }.observes('filterMode', 'category'),
+  }.observes('filterMode', 'category').observes('filterMode', 'arena'),
 
   // Create topic button
   createTopic: function() {
