@@ -42,6 +42,24 @@ Discourse.Utilities = {
 
     return result + "style=\"background-color: #" + color + "; color: #" + textColor + ";\">" + name + "</a>";
   },
+  
+  // Create a badge like arena link
+  arenaLink: function(arena) {
+    //if (!arena) return "";
+
+    //var color = Em.get(category, 'color');
+    //var textColor = Em.get(category, 'text_color');
+    //var name = Em.get(category, 'name');
+    //var description = Em.get(category, 'description');
+
+    // Build the HTML link
+    var result = "<a href=\"#arenas\" class=\"badge-category\" ";
+
+    // Add description if we have it
+    //if (description) result += "title=\"" + Handlebars.Utils.escapeExpression(description) + "\" ";
+
+    return result + "style=\"background-color: #" + "0E76BD" + "; color: #" + "FFFFFF" + ";\">" + "Main Arena" + "</a>";
+  },
 
   avatarUrl: function(username, size, template) {
     var rawSize;

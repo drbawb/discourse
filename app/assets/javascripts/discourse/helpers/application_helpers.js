@@ -67,6 +67,17 @@ Ember.Handlebars.registerBoundHelper('boundCategoryLink', function(category) {
 });
 
 /**
+  Produces a link to an arena
+
+  @method arenaLink
+  @for Handlebars
+**/
+Handlebars.registerHelper('arenaLink', function(property, options) {
+  var category = Ember.Handlebars.get(this, property, options);
+  return new Handlebars.SafeString(Discourse.Utilities.arenaLink(category));
+});
+
+/**
   Produces a link to a route with support for i18n on the title
 
   @method titledLinkTo
