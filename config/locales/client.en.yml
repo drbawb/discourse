@@ -763,6 +763,7 @@ en:
     likes: "Likes"
     top_contributors: "Participants"
     category_title: "Category"
+    arena_title: "Arena"
     history: "History"
     changed_by: "by {{author}}"
 
@@ -781,6 +782,10 @@ en:
       read:
         title: "Read"
         help: "topics you've read, in the order that you last read them"
+      arenas:
+        title: "Arenas"
+        title_in: "Arenas - {{arenaName}}"
+        help: "all topics and categories grouped by arena"
       categories:
         title: "Categories"
         title_in: "Category - {{categoryName}}"
