@@ -420,7 +420,7 @@ en:
     best_of_posts_required: "Minimum posts in a topic before 'best of' mode is enabled"
     best_of_likes_required: "Minimum likes in a topic before the 'best of' mode will be enabled"
     best_of_percent_filter: "When a user clicks best of, show the top % of posts"
-    enable_private_messages: "Allow basic (1) trust level users to create private messages and reply to private conversations"
+    enable_private_messages: "Allow basic (1) trust level users to create private messages and reply to private messages"
 
     enable_long_polling: "Message bus used for notification can use long polling"
     long_polling_interval: "Interval before a new long poll is issued in milliseconds "
@@ -577,7 +577,7 @@ en:
     archived_disabled: "This topic is now unarchived. It is no longer frozen, and can be changed."
     closed_enabled: "This topic is now closed. New replies are no longer allowed."
     closed_disabled: "This topic is now opened. New replies are allowed."
-    pinned_enabled: "This topic is now pinned. It will appear at the top of its category until it is either unpinned by a moderator, or cleared by each user using the Clear Pin button."
+    pinned_enabled: "This topic is now pinned. It will appear at the top of its category until it is either unpinned by a moderator, or the Clear Pin button is pressed."
     pinned_disabled: "This topic is now unpinned. It will no longer appear at the top of its category."
     visible_enabled: "This topic is now visible. It will be displayed in topic lists."
     visible_disabled: "This topic is now invisible. It will no longer be displayed in any topic lists. The only way to access this topic is via direct link."
@@ -786,9 +786,9 @@ en:
       description: "Not interested in getting these emails? No problem! Click below to unsubscribe instantly:"
 
     user_invited_to_private_message:
-      subject_template: "[%{site_name}] %{username} invited you to a private conversation '%{topic_title}'"
+      subject_template: "[%{site_name}] %{username} invited you to a private message '%{topic_title}'"
       text_body_template: |
-        %{username} invited you to a private conversation '%{topic_title}' on %{site_name}:
+        %{username} invited you to a private message '%{topic_title}' on %{site_name}:
 
         Please visit this link to view the topic: %{base_url}%{url}
 
