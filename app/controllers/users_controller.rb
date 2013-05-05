@@ -79,6 +79,10 @@ class UsersController < ApplicationController
     render nothing: true
   end
 
+  def bio
+    render nothing: true
+  end
+
   def invited
     invited_list = InvitedList.new(fetch_user_from_params)
     render_serialized(invited_list, InvitedListSerializer)
