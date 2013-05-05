@@ -14,6 +14,9 @@
         <li>
           {{#linkTo 'user.activity'}}{{i18n user.activity_stream}}{{/linkTo}}
         </li>
+        <li>
+          {{#linkTo 'user.bio'}}Bio (needs i18n){{/linkTo}}
+        </li>
         {{#if controller.canSeePrivateMessages}}
           <li>
             {{#linkTo "user.privateMessages"}}{{i18n user.private_messages}}{{/linkTo}}
@@ -37,7 +40,7 @@
 <div class="container">
   <div class='user-info clearfix'>
      <div class='about-me'>
-       {{{model.bio_excerpt}}}
+       {{outlet userBioOutlet}}
       </div>
   </div>
 </div>
