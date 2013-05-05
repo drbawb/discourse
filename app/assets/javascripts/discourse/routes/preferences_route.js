@@ -9,6 +9,7 @@
 Discourse.PreferencesRoute = Discourse.RestrictedUserRoute.extend({
 
   renderTemplate: function() {
+    this.render('user/user_bio', { into: 'user', outlet: 'userBioOutlet' });
     this.render('preferences', {
       into: 'user',
       outlet: 'userOutlet',

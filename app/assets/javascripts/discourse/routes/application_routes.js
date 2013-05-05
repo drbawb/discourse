@@ -41,11 +41,12 @@ Discourse.Route.buildRoutes(function() {
   // User routes
   this.resource('user', { path: '/users/:username' }, function() {
     this.route('activity', { path: '/' });
+    this.route('bio', { path: '/bio' });
     this.resource('preferences', { path: '/preferences' }, function() {
       this.route('username', { path: '/username' });
       this.route('email', { path: '/email' });
     });
     this.route('privateMessages', { path: '/private-messages' });
-    this.route('invited', { path: 'invited' });
+    this.route('invited', { path: '/invited' });
   });
 });

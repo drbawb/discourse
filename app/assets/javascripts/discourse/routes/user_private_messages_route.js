@@ -9,6 +9,7 @@
 Discourse.UserPrivateMessagesRoute = Discourse.RestrictedUserRoute.extend({
 
   renderTemplate: function() {
+    this.render('user/user_bio', { into: 'user', outlet: 'userBioOutlet' });
     this.render({ into: 'user', outlet: 'userOutlet' });
   },
 
